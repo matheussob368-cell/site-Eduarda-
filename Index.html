@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Dia das Mulheres</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(180deg,#050014,#22004a,#3c096c);
+color:white;
+text-align:center;
+}
+
+/* estrelas */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 1px, transparent 1px);
+background-size:50px 50px,100px 100px;
+background-position:0 0,25px 25px;
+opacity:0.6;
+animation:stars 120s linear infinite;
+}
+
+@keyframes stars{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+/* pétalas */
+
+.petala{
+position:absolute;
+font-size:20px;
+animation:cairPetala linear;
+}
+
+@keyframes cairPetala{
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+100%{
+transform:translateY(100vh) rotate(360deg);
+}
+}
+
+/* container */
+
+.container{
+width:90%;
+max-width:420px;
+position:absolute;
+z-index:2;
+}
+
+/* fotos */
+
+.fotos{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
+}
+
+.fotos img{
+width:85px;
+height:85px;
+border-radius:15px;
+object-fit:cover;
+animation:fotos 4s infinite alternate;
+box-shadow:0 0 12px pink;
+}
+
+@keyframes fotos{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+/* texto */
+
+.texto{
+background:rgba(0,0,0,0.35);
+padding:16px;
+border-radius:15px;
+min-height:120px;
+font-size:15px;
+line-height:1.4;
+}
+
+/* botão */
+
+button{
+margin-top:20px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+font-size:16px;
+background:#ff4da6;
+color:white;
+box-shadow:0 0 15px pink;
+}
+
+/* corações */
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:cair linear;
+}
+
+@keyframes cair{
+0%{transform:translateY(-50px);}
+100%{transform:translateY(100vh);}
+}
+
+/* explosão */
+
+.explode{
+position:absolute;
+font-size:24px;
+animation:boom 1.2s forwards;
+}
+
+@keyframes boom{
+0%{transform:scale(0);}
+100%{transform:scale(3);opacity:0;}
+}
+
+/* cartão */
+
+.card{
+width:300px;
+height:420px;
+perspective:1200px;
+margin:auto;
+}
+
+.card-inner{
+width:100%;
+height:100%;
+position:relative;
+transform-style:preserve-3d;
+transform:rotateY(0deg);
+transition:transform 1.5s;
+}
+
+.card.open .card-inner{
+transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:15px;
+padding:20px;
+}
+
+.card-front{
+background:#ff4da6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+box-shadow:0 0 20px pink;
+}
+
+.card-back{
+background:white;
+color:black;
+transform:rotateY(180deg);
+font-size:14px;
+overflow:auto;
+}
+
+.nome{
+color:#ff4da6;
+font-weight:bold;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- TELA 1 -->
+
+<div id="tela1" class="container">
+
+<h2>💐 Feliz Dia das Mulheres 💐</h2>
+
+<div class="fotos">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+</div>
+
+<div class="texto">
+<p id="mensagem"></p>
+</div>
+
+<button onclick="abrir()">Abrir cartão ❤️</button>
+
+</div>
+
+<!-- TELA 2 -->
+
+<div id="tela2" class="container" style="display:none">
+
+<div class="card" id="card">
+
+<div class="card-inner">
+
+<div class="card-front">
+💌 Para você
+</div>
+
+<div class="card-back">
+
+<p>
+
+Feliz Dia das Mulheres, meu amor. 🌹<br><br>
+
+Hoje é o dia que comemoramos seguindo o calendário, mas para mim o Dia das Mulheres é todos os dias. Eu sei que às vezes não faço tantas coisas legais ou não demonstro todo o carinho que você merece, mas quero que saiba que eu te amo muito e tenho um orgulho enorme da mulher que você é.<br><br>
+
+Uma mulher forte, guerreira, que passa por tudo e por todos sem se queixar. Você está sempre ali para ajudar quem precisa, mesmo quando às vezes isso te deixa cansada ou triste. Mesmo assim, esse coração enorme que você tem é uma das coisas que eu mais admiro em você.<br><br>
+
+Tenho orgulho de você ser essa mulher que se importa, que quer fazer o bem e fazer tudo por quem ama. Você é uma grande esposa, uma ótima irmã, uma pessoa incrível, e tenho certeza que um dia será uma mãe maravilhosa.<br><br>
+
+Quero muito que você continue sendo essa mulher incrível que está se tornando. Não perca nunca esse seu jeito e esse coração tão bonito.<br><br>
+
+<span class="nome">Eu te amo demais, Eduarda ❤️</span><br><br>
+
+E lembre-se: hoje não é apenas um dia comum… hoje é o seu dia. Aproveite esse dia maravilhoso. 🌷
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* texto digitando */
+
+const texto="Hoje eu preparei algo especial para você... porque você merece algo único. ❤️";
+
+let i=0;
+
+function escrever(){
+if(i<texto.length){
+document.getElementById("mensagem").innerHTML+=texto.charAt(i);
+i++;
+setTimeout(escrever,40);
+}
+}
+
+escrever();
+
+/* abrir tela */
+
+function abrir(){
+
+document.getElementById("tela1").style.display="none";
+document.getElementById("tela2").style.display="block";
+
+document.getElementById("musica").play();
+
+setTimeout(()=>{
+document.getElementById("card").classList.add("open");
+},4000);
+
+explodir();
+
+}
+
+/* corações */
+
+function criarCoracao(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+}
+
+setInterval(criarCoracao,350);
+
+/* pétalas */
+
+function criarPetala(){
+
+const petala=document.createElement("div");
+
+petala.classList.add("petala");
+petala.innerHTML="🌸";
+
+petala.style.left=Math.random()*100+"vw";
+petala.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(petala);
+
+setTimeout(()=>{
+petala.remove();
+},9000);
+
+}
+
+setInterval(criarPetala,800);
+
+/* explosão */
+
+function explodir(){
+
+for(let i=0;i<30;i++){
+
+const heart=document.createElement("div");
+
+heart.classList.add("explode");
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1200);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
